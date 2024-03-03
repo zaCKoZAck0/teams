@@ -28,6 +28,7 @@ import {
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
+import { Tooltip } from "@nextui-org/tooltip";
 
 export const Navbar = () => {
   const searchInput = (
@@ -56,7 +57,7 @@ export const Navbar = () => {
     <NextUINavbar
       maxWidth="full"
       position="sticky"
-      className="bg-alice_blue border-b"
+      className="bg-alice_blue border-b border-b-slate-300"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -67,7 +68,45 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="w-full" justify="center">
+      <NavbarContent className="w-full gap-1" justify="center">
+        <NavbarItem>
+          <Tooltip content="Back" placement="bottom">
+            <Button isIconOnly variant="light" className="text-slate-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </Button>
+          </Tooltip>
+        </NavbarItem>
+        <NavbarItem>
+          <Tooltip content="Forward" placement="bottom">
+            <Button isIconOnly variant="light" className="text-slate-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </Button>
+          </Tooltip>
+        </NavbarItem>
         <NavbarItem className="w-1/3">{searchInput}</NavbarItem>
       </NavbarContent>
     </NextUINavbar>

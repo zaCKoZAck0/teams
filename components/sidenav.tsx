@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export const SideNav = () => {
@@ -66,43 +67,49 @@ export const SideNav = () => {
             <p className="text-sm">Activity</p>
           </span>
         </li>
-        <li
-          className={`cursor-pointer border-l-3 py-2 ${
-            selectedItem === "Chat"
-              ? "text-savoy_blue border-l-savoy_blue"
-              : "text-slate-500 border-l-transparent"
-          }`}
-          onClick={() => handleItemClick("Chat")}
-        >
-          <span className="flex flex-col gap-1 items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              viewBox="0 0 24 24"
-              fill={selectedItem === "Chat" ? "currentColor" : "none"}
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              <path
-                stroke={
-                  selectedItem === "Chat" ? "rgb(229 236 242)" : "currentColor"
-                }
-                d="M13 8H7"
-              />
-              <path
-                stroke={
-                  selectedItem === "Chat" ? "rgb(229 236 242)" : "currentColor"
-                }
-                d="M17 12H7"
-              />
-            </svg>
-            <p className="text-sm">Chat</p>
-          </span>
-        </li>
+        <Link href="/conversation">
+          <li
+            className={`cursor-pointer border-l-3 py-2 ${
+              selectedItem === "Chat"
+                ? "text-savoy_blue border-l-savoy_blue"
+                : "text-slate-500 border-l-transparent"
+            }`}
+            onClick={() => handleItemClick("Chat")}
+          >
+            <span className="flex flex-col gap-1 items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill={selectedItem === "Chat" ? "currentColor" : "none"}
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                <path
+                  stroke={
+                    selectedItem === "Chat"
+                      ? "rgb(229 236 242)"
+                      : "currentColor"
+                  }
+                  d="M13 8H7"
+                />
+                <path
+                  stroke={
+                    selectedItem === "Chat"
+                      ? "rgb(229 236 242)"
+                      : "currentColor"
+                  }
+                  d="M17 12H7"
+                />
+              </svg>
+              <p className="text-sm">Chat</p>
+            </span>
+          </li>
+        </Link>
       </ul>
     </div>
   );
